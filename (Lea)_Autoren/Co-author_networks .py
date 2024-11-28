@@ -4,7 +4,7 @@ from pyvis.network import Network
 import os
 
 # Den Pfad zur CSV-Datei definieren (angenommen, sie liegt im 'data'-Ordner des Projekts)
-csv_file_path = os.path.join(os.getcwd(), 'data', 'ICSE_1994-2024.csv')
+csv_file_path = os.path.join(os.getcwd(), 'data', 'Dataset.csv')
 
 # CSV-Datei einlesen
 df = pd.read_csv(csv_file_path)
