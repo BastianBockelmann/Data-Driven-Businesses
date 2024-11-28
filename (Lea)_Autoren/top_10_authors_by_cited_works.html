@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar", "color": "slategrey", "size": 30}, "encoding": {"x": {"field": "Article Citation Count", "title": "Zitationsanzahl", "type": "quantitative"}, "y": {"field": "Authors", "sort": "-x", "title": "Autor(en)", "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "dx": 3, "fontSize": 12}, "encoding": {"text": {"field": "Article Citation Count", "type": "quantitative"}, "x": {"field": "Article Citation Count", "title": "Zitationsanzahl", "type": "quantitative"}, "y": {"field": "Authors", "sort": "-x", "title": "Autor(en)", "type": "nominal"}}}], "data": {"name": "data-4cc920944b7a96c9329bf870b4fc531b"}, "height": 400, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-4cc920944b7a96c9329bf870b4fc531b": [{"Document Title": "A survey of controlled experiments in software engineering", "Authors": "D. I. K. Sjoeberg,  J. E. Hannay,  O. Hansen,  V. B. Kampenes,  A. Karahasanovic,  N. . -K. Liborg,  A. C. Rekdal", "Article Citation Count": 436.0}, {"Document Title": "Software reuse research: status and future", "Authors": "W. B. Frakes,  Kyo Kang", "Article Citation Count": 410.0}, {"Document Title": "Blockchain-Oriented Software Engineering: Challenges and New Directions", "Authors": "S. Porru,  A. Pinna,  M. Marchesi,  R. Tonelli", "Article Citation Count": 196.0}, {"Document Title": "Toward Data-Driven Requirements Engineering", "Authors": "W. Maalej,  M. Nayebi,  T. Johann,  G. Ruhe", "Article Citation Count": 179.0}, {"Document Title": "Modular verification of software components in C", "Authors": "S. Chaki,  E. M. Clarke,  A. Groce,  S. Jha,  H. Veith", "Article Citation Count": 145.0}, {"Document Title": "Collaboration Tools for Global Software Engineering", "Authors": "F. Lanubile,  C. Ebert,  R. Prikladnicki,  A. Vizca\u00edno", "Article Citation Count": 145.0}, {"Document Title": "A Systematic Review of Theory Use in Software Engineering Experiments", "Authors": "J. E. Hannay,  D. I. K. Sjoberg,  T. Dyba", "Article Citation Count": 139.0}, {"Document Title": "Investigating Country Differences in Mobile App User Behavior and Challenges for Software Engineering", "Authors": "S. L. Lim,  P. J. Bentley,  N. Kanakam,  F. Ishikawa,  S. Honiden", "Article Citation Count": 122.0}, {"Document Title": "Crowdsourcing in Software Engineering: Models, Motivations, and Challenges", "Authors": "T. D. LaToza,  A. van der Hoek", "Article Citation Count": 117.0}, {"Document Title": "Software Development in Startup Companies: The Greenfield Startup Model", "Authors": "C. Giardino,  N. Paternoster,  M. Unterkalmsteiner,  T. Gorschek,  P. Abrahamsson", "Article Citation Count": 116.0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
