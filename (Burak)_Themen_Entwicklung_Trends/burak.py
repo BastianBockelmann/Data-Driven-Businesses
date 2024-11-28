@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Datei einlesen (Passe den Dateipfad an, falls notwendig)
-file_path = 'Transactions_on_SE_1994-2024.csv'
+file_path = 'Data/Transactions_on_SE_1994-2024.csv'
 data = pd.read_csv(file_path)
 
 # Sicherstellen, dass die Spalte "Publication Year" numerisch ist
