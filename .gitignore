@@ -16,5 +16,6 @@ pyvenv.cfg
 venv
 nltk_data
 pip-selfcheck.json
+.DS_Store
 
 # End of https://www.toptal.com/developers/gitignore/api/venv
