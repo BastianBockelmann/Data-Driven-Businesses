@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"grid": true, "gridOpacity": 0.3}}, "layer": [{"mark": {"type": "bar"}, "encoding": {"tooltip": [{"field": "Journal", "type": "nominal"}, {"field": "Anzahl Papers", "type": "quantitative"}, {"field": "Gesamtzitationen", "type": "quantitative"}, {"field": "Durchschnittliche Zitationen", "type": "quantitative"}], "x": {"field": "Gesamtzitationen", "title": "Gesamtzahl der Zitationen", "type": "quantitative"}, "y": {"field": "Journal", "sort": "-x", "title": "Journal", "type": "nominal"}}, "title": "Top 10 Journals nach Gesamtzitationen"}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 3}, "encoding": {"text": {"field": "Gesamtzitationen", "format": ".0f", "type": "quantitative"}, "x": {"field": "Gesamtzitationen", "type": "quantitative"}, "y": {"field": "Journal", "type": "nominal"}}}], "data": {"name": "data-fe485a66b229735fc32063be3bd69851"}, "height": 400, "width": 1000, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-fe485a66b229735fc32063be3bd69851": [{"Journal": "IEEE Transactions on Software Engineering", "Anzahl Papers": 409, "Gesamtzitationen": 22257.0, "Durchschnittliche Zitationen": 54.41809290953545}, {"Journal": "2012 34th International Conference on Software Engineering (ICSE)", "Anzahl Papers": 31, "Gesamtzitationen": 1042.0, "Durchschnittliche Zitationen": 33.61290322580645}, {"Journal": "2022 IEEE/ACM 44th International Conference on Software Engineering (ICSE)", "Anzahl Papers": 62, "Gesamtzitationen": 725.0, "Durchschnittliche Zitationen": 11.693548387096774}, {"Journal": "2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)", "Anzahl Papers": 61, "Gesamtzitationen": 620.0, "Durchschnittliche Zitationen": 10.163934426229508}, {"Journal": "2024 IEEE/ACM 46th International Conference on Software Engineering (ICSE)", "Anzahl Papers": 79, "Gesamtzitationen": 67.0, "Durchschnittliche Zitationen": 0.8481012658227848}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"grid": true, "gridOpacity": 0.3}}, "layer": [{"mark": {"type": "bar"}, "encoding": {"tooltip": [{"field": "Institution", "type": "nominal"}, {"field": "Count", "type": "quantitative"}], "x": {"field": "Count", "title": "Anzahl Publikationen", "type": "quantitative"}, "y": {"field": "Institution", "sort": "-x", "title": "Institution", "type": "nominal"}}, "title": "Top 10 Institutionen in der KI-Software-Engineering-Forschung"}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 3}, "encoding": {"text": {"field": "Count", "format": ".0f", "type": "quantitative"}, "x": {"field": "Count", "type": "quantitative"}, "y": {"field": "Institution", "type": "nominal"}}}], "data": {"name": "data-d644c60de5401c6ec5a1c5190b9d7ff8"}, "height": 400, "width": 1000, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-d644c60de5401c6ec5a1c5190b9d7ff8": [{"Institution": "State Key Laboratory for Novel Software Technology, Nanjing University, Nanjing, China", "Count": 10}, {"Institution": "Dept. of Computer Science, Iowa State University, Ames, IA, USA", "Count": 6}, {"Institution": "David R. Cheriton School of Computer Science, University of Waterloo, Waterloo, ON, Canada", "Count": 4}, {"Institution": "Simula Research Laboratory, Lysaker, Norway", "Count": 4}, {"Institution": "Singapore Management University, Singapore", "Count": 3}, {"Institution": "Monash University, Melbourne, Australia", "Count": 3}, {"Institution": "Purdue University, West Lafayette, USA", "Count": 3}, {"Institution": "The Chinese University of Hong Kong, Hong Kong, China", "Count": 3}, {"Institution": "Lane Department of Computer Science and Electrical Engineering, West Virginia University, Morgantown, WV, USA", "Count": 3}, {"Institution": "Department of Informatics, University of Oslo, Oslo, Norway", "Count": 3}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

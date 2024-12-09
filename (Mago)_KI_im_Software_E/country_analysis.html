@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"grid": true, "gridOpacity": 0.3}}, "layer": [{"mark": {"type": "bar"}, "encoding": {"tooltip": [{"field": "Country", "type": "nominal"}, {"field": "Count", "type": "quantitative"}], "x": {"field": "Count", "title": "Anzahl Publikationen", "type": "quantitative"}, "y": {"field": "Country", "sort": "-x", "title": "Land", "type": "nominal"}}, "title": "Top 10 L\u00e4nder in der KI-Software-Engineering-Forschung"}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 3}, "encoding": {"text": {"field": "Count", "format": ".0f", "type": "quantitative"}, "x": {"field": "Count", "type": "quantitative"}, "y": {"field": "Country", "type": "nominal"}}}], "data": {"name": "data-61d160a6e8278e6e81e818fc1ee6d4e0"}, "height": 400, "width": 1000, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-61d160a6e8278e6e81e818fc1ee6d4e0": [{"Country": "USA", "Count": 193}, {"Country": "China", "Count": 140}, {"Country": "UK", "Count": 48}, {"Country": "Canada", "Count": 44}, {"Country": "Italy", "Count": 32}, {"Country": "Germany", "Count": 29}, {"Country": "Australia", "Count": 20}, {"Country": "Norway", "Count": 11}, {"Country": "Switzerland", "Count": 10}, {"Country": "Spain", "Count": 9}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

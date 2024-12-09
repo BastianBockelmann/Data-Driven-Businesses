@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"grid": true, "gridOpacity": 0.3}}, "layer": [{"mark": {"type": "line", "point": true}, "encoding": {"tooltip": [{"field": "Publication Year", "type": "quantitative"}, {"field": "Article Citation Count", "type": "quantitative"}], "x": {"axis": {"format": "d"}, "field": "Publication Year", "scale": {"domain": [1994, 2024]}, "title": "Jahr", "type": "quantitative"}, "y": {"field": "Article Citation Count", "title": "Gesamtzahl der Zitationen", "type": "quantitative"}}, "title": "Entwicklung der Zitationen \u00fcber Zeit"}, {"mark": {"type": "text", "align": "center", "baseline": "bottom", "dy": -10}, "encoding": {"text": {"field": "Article Citation Count", "format": ".0f", "type": "quantitative"}, "x": {"field": "Publication Year", "type": "quantitative"}, "y": {"field": "Article Citation Count", "type": "quantitative"}}}], "data": {"name": "data-8ba812e82e5433b0876c4adb66788c8b"}, "height": 500, "width": 1000, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-8ba812e82e5433b0876c4adb66788c8b": [{"Publication Year": 1994, "Article Citation Count": 509.0}, {"Publication Year": 1995, "Article Citation Count": 783.0}, {"Publication Year": 1996, "Article Citation Count": 267.0}, {"Publication Year": 1997, "Article Citation Count": 31.0}, {"Publication Year": 1998, "Article Citation Count": 496.0}, {"Publication Year": 1999, "Article Citation Count": 997.0}, {"Publication Year": 2000, "Article Citation Count": 639.0}, {"Publication Year": 2001, "Article Citation Count": 533.0}, {"Publication Year": 2002, "Article Citation Count": 1324.0}, {"Publication Year": 2003, "Article Citation Count": 745.0}, {"Publication Year": 2004, "Article Citation Count": 324.0}, {"Publication Year": 2005, "Article Citation Count": 352.0}, {"Publication Year": 2006, "Article Citation Count": 649.0}, {"Publication Year": 2007, "Article Citation Count": 928.0}, {"Publication Year": 2008, "Article Citation Count": 1426.0}, {"Publication Year": 2009, "Article Citation Count": 393.0}, {"Publication Year": 2010, "Article Citation Count": 659.0}, {"Publication Year": 2011, "Article Citation Count": 336.0}, {"Publication Year": 2012, "Article Citation Count": 2019.0}, {"Publication Year": 2013, "Article Citation Count": 1293.0}, {"Publication Year": 2014, "Article Citation Count": 363.0}, {"Publication Year": 2015, "Article Citation Count": 563.0}, {"Publication Year": 2016, "Article Citation Count": 618.0}, {"Publication Year": 2017, "Article Citation Count": 1145.0}, {"Publication Year": 2018, "Article Citation Count": 1016.0}, {"Publication Year": 2019, "Article Citation Count": 1338.0}, {"Publication Year": 2020, "Article Citation Count": 826.0}, {"Publication Year": 2021, "Article Citation Count": 819.0}, {"Publication Year": 2022, "Article Citation Count": 2062.0}, {"Publication Year": 2023, "Article Citation Count": 1102.0}, {"Publication Year": 2024, "Article Citation Count": 156.0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
