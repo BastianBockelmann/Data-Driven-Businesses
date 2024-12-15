@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"grid": true, "gridOpacity": 0.3}}, "layer": [{"mark": {"type": "line"}, "encoding": {"x": {"axis": {"format": "d", "tickCount": 31}, "field": "Publication Year", "scale": {"domain": [1994, 2024]}, "title": "Jahr", "type": "quantitative"}, "y": {"field": "count", "title": "Anzahl Publikationen", "type": "quantitative"}}}, {"mark": {"type": "point", "size": 50}, "encoding": {"x": {"axis": {"format": "d", "tickCount": 31}, "field": "Publication Year", "scale": {"domain": [1994, 2024]}, "title": "Jahr", "type": "quantitative"}, "y": {"field": "count", "title": "Anzahl Publikationen", "type": "quantitative"}}}, {"mark": {"type": "text", "align": "center", "baseline": "bottom", "dy": -10}, "encoding": {"text": {"field": "count", "format": ".0f", "type": "quantitative"}, "x": {"axis": {"format": "d", "tickCount": 31}, "field": "Publication Year", "scale": {"domain": [1994, 2024]}, "title": "Jahr", "type": "quantitative"}, "y": {"field": "count", "title": "Anzahl Publikationen", "type": "quantitative"}}}], "data": {"name": "data-46e8c0a07aed7d3a6f4bf3d10197a922"}, "height": 500, "title": "Entwicklung der KI-Publikationen im Software Engineering", "width": 1000, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-46e8c0a07aed7d3a6f4bf3d10197a922": [{"Publication Year": 1994, "count": 7}, {"Publication Year": 1995, "count": 10}, {"Publication Year": 1996, "count": 5}, {"Publication Year": 1997, "count": 1}, {"Publication Year": 1998, "count": 4}, {"Publication Year": 1999, "count": 10}, {"Publication Year": 2000, "count": 7}, {"Publication Year": 2001, "count": 5}, {"Publication Year": 2002, "count": 7}, {"Publication Year": 2003, "count": 7}, {"Publication Year": 2004, "count": 7}, {"Publication Year": 2005, "count": 8}, {"Publication Year": 2006, "count": 6}, {"Publication Year": 2007, "count": 7}, {"Publication Year": 2008, "count": 11}, {"Publication Year": 2009, "count": 6}, {"Publication Year": 2010, "count": 6}, {"Publication Year": 2011, "count": 6}, {"Publication Year": 2012, "count": 42}, {"Publication Year": 2013, "count": 15}, {"Publication Year": 2014, "count": 4}, {"Publication Year": 2015, "count": 5}, {"Publication Year": 2016, "count": 16}, {"Publication Year": 2017, "count": 10}, {"Publication Year": 2018, "count": 9}, {"Publication Year": 2019, "count": 13}, {"Publication Year": 2020, "count": 14}, {"Publication Year": 2021, "count": 31}, {"Publication Year": 2022, "count": 107}, {"Publication Year": 2023, "count": 119}, {"Publication Year": 2024, "count": 137}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
